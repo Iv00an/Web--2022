@@ -1,0 +1,48 @@
+# Магические методы для описания сравнения. Можно метод больше- это сочетание того что объект не меньше и не равен. Тогда можно описать не 6 методов а 3.
+
+from  functools import  total_ordering
+
+@total_ordering # декоратор из библиотеки functools
+class Person(object):
+
+    def __init__(self,firstname,lastname):
+        self.first = firstname #имя
+        self.last = lastname #фамилия
+
+    def __eq__(self, other):
+        print(f'{self.first} {self.last} eq:', end = '\t')
+        return ((self.last, self.first) == (other.last, other.first))
+
+    #def __ne__(self, other):
+     #   print(f'{self.first} {self.last} ne:', end='\t')
+      #  return ((self.last, self.first) != (other.last, other.first))
+
+    #def __lt__(self, other):
+     #   print(f'{self.first} {self.last} lt:', end='\t')
+     #   return ((self.last, self.first) < (other.last, other.first))
+
+    def __le__(self, other):
+        print(f'{self.first} {self.last} le:', end='\t')
+        return ((self.last, self.first) <= (other.last, other.first))
+
+    #def __gt__(self, other):
+     #   print(f'{self.first} {self.last} gt:', end='\t')
+      #  return ((self.last, self.first) > (other.last, other.first))
+
+    def __ge__(self, other):
+        print(f'{self.first} {self.last} ge:', end='\t')
+        return ((self.last, self.first) >= (other.last, other.first))
+
+    def __repr__(self):
+        return "%s %s" % (self.last, self.first)
+
+
+a = Person('Евпатий',"Коловрат")
+b = Person('Илья ','Муромец')
+
+print(a == b)
+print(a != b)
+print(a >= b)
+print(a > b)
+print(a <= b)
+print(a < b)
