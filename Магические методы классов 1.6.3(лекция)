@@ -1,3 +1,4 @@
+# Внутри класса после метода будем писать строку с наименованием метода, который был вызван
 class A:
     def __init__(self,value):
         self.value = value
@@ -12,9 +13,9 @@ class A:
         return f'A({self.value}) object format method'
     
     
-a= A(365)
-print(a)
-print("some text wiht %s" % a)
-print(f'some text with {a}')
-print("some text with {a}".format(a = a))
-a
+a= A(365) # создаем объект класса
+print(a) # вызываем над ним принт
+print("some text wiht %s" % a) # вызываем  принт какой то строки, внутрь которой будет добавлен объект а, вызывается метод str
+print(f'some text with {a}') # если форматируем строку, то вызывается метод формат
+print("some text with {a}".format(a = a)) 
+a # просто смотрим, вызывется метод repr
