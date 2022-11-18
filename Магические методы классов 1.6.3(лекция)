@@ -1,0 +1,20 @@
+class A:
+    def __init__(self,value):
+        self.value = value
+
+    def __str__(self):
+        return f'A({self.value}) object str method'
+    
+    def __repr__(self):
+        return f'A({self.value}) object repr method'
+    
+    def __format__(self, format_spec):
+        return f'A({self.value}) object format method'
+    
+    
+a= A(365)
+print(a)
+print("some text wiht %s" % a)
+print(f'some text with {a}')
+print("some text with {a}".format(a = a))
+a
